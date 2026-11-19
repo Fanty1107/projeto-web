@@ -100,14 +100,6 @@ function esvaziarGrid(idGrid) {
   document.getElementById(idGrid).innerHTML = "";
 }
 
-function mostrarErro(mensagem) {
-  const aviso = `
-    <div class="alert alert-warning alert-dismissible mt-4" role="alert">
-      ${limparTexto(mensagem)}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-    </div>`;
-  document.getElementById("avisoErro").insertAdjacentHTML("beforeend", aviso);
-}
 
 // carrossel do topo: só entram os filmes que têm imagem de fundo
 function montarCarrossel(filmes) {
@@ -149,7 +141,7 @@ function montarCarrossel(filmes) {
 
 async function carregarListas() {
   if (TMDB_KEY === "COLE_SUA_CHAVE_AQUI") {
-    mostrarErro("Falta a chave da TMDB. Cole a sua no começo do arquivo scripts/filmes.js para carregar os filmes.");
+    console.error("Erro sem chave api para filmes");
     esvaziarGrid("gridAlta");
     esvaziarGrid("gridMelhores");
     esvaziarGrid("gridCartaz");
@@ -169,7 +161,6 @@ async function carregarListas() {
     montarCarrossel(filmesAlta.slice(0, 5));
   } catch (erro) {
     console.error(erro);
-    mostrarErro("Não foi possível carregar os filmes agora. Tente recarregar a página.");
     esvaziarGrid("gridAlta");
     esvaziarGrid("gridMelhores");
     esvaziarGrid("gridCartaz");
@@ -203,7 +194,7 @@ async function buscarFilmes(reiniciar) {
   const botaoMais = document.getElementById("btnMais");
 
   if (TMDB_KEY === "COLE_SUA_CHAVE_AQUI") {
-    mostrarErro("Falta a chave da TMDB. Cole a sua no começo do arquivo scripts/filmes.js.");
+    console.error("Falta a chave da TMDB. Cole a sua no começo do arquivo scripts/filmes.js.");
     return;
   }
 
@@ -264,7 +255,7 @@ async function buscarFilmes(reiniciar) {
   } catch (erro) {
     console.error(erro);
     esvaziarGrid("gridBusca");
-    mostrarErro("Não foi possível fazer a busca agora. Tente de novo em instantes.");
+    console.error("Não foi possível fazer a busca agora. Tente de novo em instantes.");
   }
 }
 
@@ -285,7 +276,6 @@ document.getElementById("btnMais").addEventListener("click", function () {
   buscarFilmes(false);
 });
 
-document.getElementById("btnLimpar").addEventListener("click", limparBusca);
 
 
 // ---------- início ----------

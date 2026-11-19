@@ -34,7 +34,7 @@ h1, h2, h3, h4, .navbar-brand {
 .card {
   background: var(--superficie);
   border: 1px solid var(--linha);
-  border-radius: 0.75rem;
+  border-radius: 0;
 }
 
 .btn-accent {
@@ -105,7 +105,7 @@ h1, h2, h3, h4, .navbar-brand {
   width: 100%;
   aspect-ratio: 2 / 3;
   object-fit: cover;
-  border-radius: 0.6rem;
+  border-radius: 0;
   border: 1px solid var(--linha);
   background: var(--superficie);
 }
@@ -184,7 +184,7 @@ h1, h2, h3, h4, .navbar-brand {
   display: inline-block;
   padding: 0.2rem 0.65rem;
   margin-bottom: 0.75rem;
-  border-radius: 99px;
+  border-radius: 0;
   background: var(--cat, var(--amarelo));
   color: #1b1405;
   font-size: 0.85rem;
@@ -257,7 +257,7 @@ h1, h2, h3, h4, .navbar-brand {
 /* quadrado cinza que aparece enquanto carrega */
 .skeleton {
   aspect-ratio: 2 / 3;
-  border-radius: 0.6rem;
+  border-radius: 0;
   background: var(--superficie);
 }
 
