@@ -1,4 +1,4 @@
-# Marcador
+# LetterMoe
 
 Site para descobrir filmes, séries e animes, com catálogo, busca e páginas de detalhes (inspirado em Letterbox e Backloggd, em versão simplificada). Projeto da Atividade Avaliativa A3 de Usabilidade, Desenvolvimento Web, Mobile e Jogos Digitais.
 
