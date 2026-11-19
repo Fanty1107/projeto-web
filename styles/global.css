@@ -1,0 +1,283 @@
+/* global.css - estilos de todas as páginas */
+:root {
+  --fundo: #17141f;
+  --superficie: #221e2e;
+  --linha: #3a3450;
+  --texto: #f1edf8;
+  --texto-suave: #b2abc6;
+  --amarelo: #f5b544;
+  --azul: #3dd6c3;
+  --rosa: #ff6b9a;
+}
+
+/* tema escuro do bootstrap com as nossas cores */
+[data-bs-theme="dark"] {
+  --bs-body-bg: var(--fundo);
+  --bs-body-color: var(--texto);
+  --bs-body-font-family: "DM Sans", system-ui, sans-serif;
+  --bs-secondary-color: var(--texto-suave);
+  --bs-border-color: var(--linha);
+  --bs-link-color-rgb: 245, 181, 68;
+  --bs-link-hover-color-rgb: 255, 212, 130;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 2px;
+}
+
+.card {
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: 0.75rem;
+}
+
+.btn-accent {
+  background: var(--amarelo);
+  border-color: var(--amarelo);
+  color: #1b1405;
+  font-weight: 700;
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background: #ffc863;
+  border-color: #ffc863;
+  color: #1b1405;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--fundo);
+  border-color: var(--linha);
+}
+
+
+/* navbar */
+
+.app-navbar {
+  background: rgba(23, 20, 31, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linha);
+}
+
+.app-navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--amarelo);
+}
+
+.app-navbar .nav-link {
+  color: var(--texto-suave);
+}
+
+.app-navbar .nav-link:hover,
+.app-navbar .nav-link.active {
+  color: var(--texto);
+}
+
+.app-navbar .nav-link.active {
+  box-shadow: inset 0 -2px 0 var(--amarelo);
+}
+
+
+/* cor de cada categoria (a variável --cat é usada nos cards e títulos) */
+
+.cat-filmes { --cat: var(--amarelo); }
+.cat-series { --cat: var(--azul); }
+.cat-animes { --cat: var(--rosa); }
+
+
+/* card de filme/série/anime */
+
+.titulo-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.titulo-card .poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+}
+
+.titulo-card:hover .poster,
+.titulo-card:focus-visible .poster {
+  border-color: var(--cat, var(--amarelo));
+}
+
+.titulo-card .nome {
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  margin: 0.5rem 0 0.15rem;
+}
+
+.titulo-card .meta {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.nota {
+  color: var(--amarelo);
+  font-weight: 700;
+}
+
+
+/* rodapé */
+
+.app-footer {
+  border-top: 1px solid var(--linha);
+  padding: 2rem 0;
+  margin-top: 4rem;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+
+/* ---------- home ---------- */
+
+/* carrossel do topo */
+
+.hero .carousel-item {
+  min-height: 460px;
+}
+
+.hero-slide {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 460px;
+  background-color: var(--superficie);
+  background-size: cover;
+  background-position: center top;
+}
+
+/* degradê por cima da imagem para o texto ficar legível */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--fundo) 5%, rgba(23, 20, 31, 0.55) 55%, rgba(23, 20, 31, 0.25));
+}
+
+.hero-slide--vazio {
+  background: var(--superficie);
+}
+
+.hero-conteudo {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 4.5rem;
+}
+
+.hero-categoria {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  margin-bottom: 0.75rem;
+  border-radius: 99px;
+  background: var(--cat, var(--amarelo));
+  color: #1b1405;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.hero-titulo {
+  max-width: 20ch;
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+}
+
+/* sinopse cortada em 3 linhas */
+.hero-sinopse {
+  max-width: 60ch;
+  margin-bottom: 1rem;
+  color: var(--texto);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero .carousel-indicators {
+  margin-bottom: 1.25rem;
+}
+
+
+/* busca (fica um pouco por cima do carrossel) */
+
+.busca-wrap {
+  position: relative;
+  z-index: 5;
+  margin-top: -2.25rem;
+}
+
+.busca {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+
+/* seções de filmes, séries e animes */
+
+.secao {
+  margin-top: 3rem;
+}
+
+.secao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--cat, var(--amarelo));
+}
+
+.secao-topo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.secao-link {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* quadrado cinza que aparece enquanto carrega */
+.skeleton {
+  aspect-ratio: 2 / 3;
+  border-radius: 0.6rem;
+  background: var(--superficie);
+}
+
+
+/* celular */
+
+@media (max-width: 576px) {
+  .hero .carousel-item,
+  .hero-slide {
+    min-height: 400px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item {
+    transition: none;
+  }
+}
